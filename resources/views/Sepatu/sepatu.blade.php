@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Pendaki</h1>
+            <h1>Data Sepatu</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Data Pendaki</a></li>
-              <li class="breadcrumb-item active">Data Pendaki</li>
+              <li class="breadcrumb-item"><a href="#">Data Sepatu</a></li>
+              <li class="breadcrumb-item active">Data Sepatu</li>
             </ol>
           </div>
         </div>
@@ -46,33 +46,33 @@
 
 <div class="card-body">
 
-    <a href="{{url('pendaki/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+    <a href="{{url('sepatu/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
 
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>No</th>
-          <th>NIK</th>
-          <th>Nama</th>
-          <th>Alamat</th>
-          <th>No_hp</th>
+          <th>Merk</th>
+          <th>Ukuran</th>
+          <th>Warna</th>
+          <th>Harga Sewa</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        @if($pendaki->count() > 0)
-          @foreach($pendaki as $i => $t)
+        @if($sepatu->count() > 0)
+          @foreach($sepatu as $i => $t)
             <tr>
               <td>{{++$i}}</td>
-              <td>{{$t->NIK}}</td>
-              <td>{{$t->nama}}</td>
-              <td>{{$t->alamat}}</td>
-              <td>{{$t->no_hp}}</td>
+              <td>{{$t->merk}}</td>
+              <td>{{$t->ukuran}}</td>
+              <td>{{$t->warna}}</td>
+              <td>{{$t->harga_sewa}}</td>
               <td>
                 <!-- Bikin tombol edit dan delete -->
-                <a href="{{ url('/pendaki/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                <a href="{{ url('/sepatu/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
 
-                <form method="POST" action="{{ url('/pendaki/'.$t->id) }}" >
+                <form method="POST" action="{{ url('/sepatu/'.$t->id) }}" >
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">hapus</button>
@@ -89,7 +89,7 @@
 
   <div class="row">
     <div class = "col-md-12">
-      {{$pendaki->links()}}
+      {{$sepatu->links()}}
     </div>
   </div>
   <!-- /.card-body -->
