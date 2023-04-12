@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JaketController;
+use App\Http\Controllers\OthersController;
 use App\Http\Controllers\PendakiController;
 use App\Http\Controllers\SepatuController;
 use App\Http\Controllers\SleepingBagController;
@@ -28,3 +29,4 @@ Route::resource('/sb', SleepingBagController::class);
 Route::resource('/jaket', JaketController::class);
 Route::resource('/sepatu', SepatuController::class);
 Route::resource('/sb', SleepingBagController::class);
+Route::resource('/others', OthersController::class);

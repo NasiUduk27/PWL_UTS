@@ -84,6 +84,11 @@
       </tbody>
     </table>
   </div>
+  <div class="row">
+    <div class = "col-md-12">
+      {{$sb->links()}}
+    </div>
+  </div>
   <!-- /.card-body -->
   <div class="card-footer">
     Terima Kasih

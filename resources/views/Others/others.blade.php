@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Jaket</h1>
+            <h1>Data Barang yang tidak ada dalam list</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Data Barang</a></li>
-              <li class="breadcrumb-item active">Data Jaket</li>
+              <li class="breadcrumb-item"><a href="#">Data Others</a></li>
+              <li class="breadcrumb-item active">Data Others</li>
             </ol>
           </div>
         </div>
@@ -46,31 +46,32 @@
 
 <div class="card-body">
 
-    <a href="{{url('jaket/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+    <a href="{{url('others/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
 
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>No</th>
-          <th>Merk Jaket</th>
-          <th>Warna</th>
-          <th>Sewa perHari</th>
+          <th>Nama Barang</th>
+          <th>Jumlah</th>
+          <th>Merk</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        @if($jaket->count() > 0)
-          @foreach($jaket as $i => $t)
+        @if($others->count() > 0)
+          @foreach($others as $i => $t)
             <tr>
               <td>{{++$i}}</td>
-              <td>{{$t->merk_jaket}}</td>
-              <td>{{$t->warna}}</td>
-              <td>{{$t->sewaperhari}}</td>
+              <td>{{$t->NIK}}</td>
+              <td>{{$t->nama}}</td>
+              <td>{{$t->alamat}}</td>
+              <td>{{$t->no_hp}}</td>
               <td>
                 <!-- Bikin tombol edit dan delete -->
-                <a href="{{ url('/jaket/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                <a href="{{ url('/others/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
 
-                <form method="POST" action="{{ url('/jaket/'.$t->id) }}" >
+                <form method="POST" action="{{ url('/others/'.$t->id) }}" >
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">hapus</button>
@@ -87,7 +88,7 @@
 
   <div class="row">
     <div class = "col-md-12">
-      {{$jaket->links()}}
+      {{$others->links()}}
     </div>
   </div>
   <!-- /.card-body -->

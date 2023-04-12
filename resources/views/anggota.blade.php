@@ -38,8 +38,8 @@
           </div>
         </div>
         <div class="card-body">
-          1. Afif Lukmanul Hakim <br>
-          2. Dhoriffito Diansyah Putra
+          <b>Afif Lukmanul Hakim </b> <br>
+          <b> Dhoriffito Diansyah Putra </b>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -57,15 +57,15 @@
 
   @push('custom_css')
       <style>
-        .card{
-            background:green;
-            color:aliceblue;
+       .card{
+            background:white;
+            color:black;
             transition: 0.5s;
         }
 
         .card:hover{
-            background: aqua;
-            color: blue;
+            background: black;
+            color: white;
             transform:scale(0.9);
         }
       </style>

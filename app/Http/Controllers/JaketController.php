@@ -14,7 +14,7 @@ class JaketController extends Controller
      */
     public function index()
     {
-        $jaket = Jaket::all();
+        $jaket = Jaket::paginate(2);
         return view('jaket.jaket', [
             'jaket' => $jaket
         ]);

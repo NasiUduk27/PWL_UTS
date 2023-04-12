@@ -14,7 +14,7 @@ class SleepingBagController extends Controller
      */
     public function index()
     {
-        $sb = SleepingBag::all();
+        $sb = SleepingBag::paginate(2);
         return view('sleepingbag.sleepingbag', [
             'sb' => $sb
         ]);

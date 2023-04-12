@@ -57,14 +57,14 @@
   @push('custom_css')
       <style>
         .card{
-            background:green;
-            color:aliceblue;
+            background:white;
+            color:black;
             transition: 0.5s;
         }
 
         .card:hover{
-            background: aqua;
-            color: blue;
+            background: black;
+            color: white;
             transform:scale(0.9);
         }
       </style>

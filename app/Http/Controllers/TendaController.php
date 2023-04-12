@@ -14,7 +14,7 @@ class TendaController extends Controller
      */
     public function index()
     {
-        $tenda = Tenda::all();
+        $tenda = Tenda::paginate(2);
         return view('tenda.tenda', [
             'tenda' => $tenda
         ]);
