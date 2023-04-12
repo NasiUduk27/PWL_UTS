@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Pendaki</h1>
+                        <h1>Data Sepatu</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Data Pendaki</a></li>
-                            <li class="breadcrumb-item active">Data Pendaki</li>
+                            <li class="breadcrumb-item"><a href="#">Data Sepatu</a></li>
+                            <li class="breadcrumb-item active">Data Sepatu</li>
                         </ol>
                     </div>
                 </div>
@@ -40,42 +40,42 @@
                 <div class="card-body">
                     <form method="POST" action="{{ $url_form }}">
                         @csrf
-                        {!! isset($pendaki) ? method_field('PUT') : '' !!}
+                        {!! isset($sepatu) ? method_field('PUT') : '' !!}
 
                         <div class="form-group">
-                            <label>NIK</label>
-                            <input class="form-control @error('NIK') is-invalid @enderror"
-                                value="{{ isset($pendaki) ? $pendaki->NIK : old('NIK') }}" name="NIK" type="text" />
-                            @error('NIK')
+                            <label>Merk</label>
+                            <input class="form-control @error('merk') is-invalid @enderror"
+                                value="{{ isset($sepatu) ? $sepatu->merk : old('merk') }}" name="merk" type="text" />
+                            @error('merk')
                                 <span class="error invalid-feedback">{{ $message }} </span>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label>Nama Pendaki</label>
-                            <input class="form-control @error('nama') is-invalid @enderror"
-                                value="{{ isset($pendaki) ? $pendaki->nama : old('nama') }}" name="nama" type="text" />
-                            @error('nama')
+                            <label>Ukuran Sepatu</label>
+                            <input class="form-control @error('ukuran') is-invalid @enderror"
+                                value="{{ isset($sepatu) ? $sepatu->ukuran : old('ukuran') }}" name="ukuran" type="text" />
+                            @error('ukuran')
                                 <span class="error invalid-feedback">{{ $message }} </span>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label>Alamat</label>
-                            <input class="form-control @error('alamat') is-invalid @enderror"
-                                value="{{ isset($pendaki) ? $pendaki->alamat : old('alamat') }}" name="alamat"
+                            <label>Warna</label>
+                            <input class="form-control @error('warna') is-invalid @enderror"
+                                value="{{ isset($sepatu) ? $sepatu->warna : old('warna') }}" name="warna"
                                 type="text" />
-                            @error('alamat')
+                            @error('warna')
                                 <span class="error invalid-feedback">{{ $message }} </span>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label>No Hp</label>
-                            <input class="form-control @error('no_hp') is-invalid @enderror"
-                                value="{{ isset($pendaki) ? $pendaki->no_hp : old('no_hp') }}" name="no_hp"
+                            <label>Harga Sewa</label>
+                            <input class="form-control @error('harga_sewa') is-invalid @enderror"
+                                value="{{ isset($sepatu) ? $sepatu->harga_sewa : old('harga_sewa') }}" name="harga_sewa"
                                 type="text" />
-                            @error('no_hp')
+                            @error('harga_sewa')
                                 <span class="error invalid-feedback">{{ $message }} </span>
                             @enderror
                         </div>

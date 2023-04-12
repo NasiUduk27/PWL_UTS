@@ -14,7 +14,7 @@ class PendakiController extends Controller
      */
     public function index()
     {
-        $pendaki = Pendaki::all();
+        $pendaki = Pendaki::paginate(2);
         return view('pendaki.pendaki')->with('pendaki', $pendaki);
     }
 

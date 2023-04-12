@@ -89,7 +89,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/sepatutrack') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}" class="nav-link">
+                <a href="{{ url('/sepatu') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sepatu Track</p>
                 </a>
