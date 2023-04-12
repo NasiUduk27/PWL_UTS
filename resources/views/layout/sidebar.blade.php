@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/sleepingbag') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}" class="nav-link">
+                <a href="{{ url('/sb') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sleeping Bag</p>
                 </a>
