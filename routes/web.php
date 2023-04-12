@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PendakiController;
 use App\Http\Controllers\TendaController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/anggotakelompok', [AnggotaController::class, 'index']);
 Route::resource('/datatenda', TendaController::class);
+Route::resource('/pendaki', PendakiController::class);

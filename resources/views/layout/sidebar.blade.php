@@ -53,6 +53,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ url('/pendaki') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Data Pendaki
+              </p>
+            </a>
+        </li>
+
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -90,6 +99,10 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Barang Lainnya</p>
                 </a>
+              </li>
+
+           
+                
       </nav>
       <!-- /.sidebar-menu -->
     </div>
