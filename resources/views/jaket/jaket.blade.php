@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Sleeping Bag</h1>
+            <h1>Data Jaket</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Data Barang</a></li>
-              <li class="breadcrumb-item active">Data Sleeping Bag</li>
+              <li class="breadcrumb-item active">Data Jaket</li>
             </ol>
           </div>
         </div>
@@ -46,31 +46,31 @@
 
 <div class="card-body">
 
-    <a href="{{url('sb/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+    <a href="{{url('jaket/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
 
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>No</th>
-          <th>Merk Sleeping Bag</th>
+          <th>Merk Jaket</th>
           <th>Warna</th>
           <th>Sewa perHari</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        @if($sb->count() > 0)
-          @foreach($sb as $i => $t)
+        @if($jaket->count() > 0)
+          @foreach($jaket as $i => $t)
             <tr>
               <td>{{++$i}}</td>
-              <td>{{$t->merk_sb}}</td>
+              <td>{{$t->merk_jaket}}</td>
               <td>{{$t->warna}}</td>
               <td>{{$t->sewaperhari}}</td>
               <td>
                 <!-- Bikin tombol edit dan delete -->
-                <a href="{{ url('/sb/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                <a href="{{ url('/jaket/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
 
-                <form method="POST" action="{{ url('/sb/'.$t->id) }}" >
+                <form method="POST" action="{{ url('/jaket/'.$t->id) }}" >
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">hapus</button>
