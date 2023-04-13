@@ -12,9 +12,14 @@ class SepatuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $sepatu = Sepatu::paginate(2);
+        if($request->has('sepatu')){
+            $sepatu = Sepatu::where('merk', 'LIKE', '%'.$request->sepatu.'%')->paginate(2);
+        }else{
+            $sepatu = Sepatu::paginate(2);
+        }
+        
         return view('sepatu.sepatu')->with('sepatu', $sepatu);
     }
 
@@ -90,7 +95,7 @@ class SepatuController extends Controller
         ]);
 
         $data = Sepatu::where('id', '=' , $id)->update($request->except(['_token', '_method']));
-        return redirect('sepatu')->with('success', 'Data Pendaki Berhasil Diubah');
+        return redirect('sepatu')->with('success', 'Data Sepatu Berhasil Diubah');
     }
 
     /**
@@ -102,6 +107,6 @@ class SepatuController extends Controller
     public function destroy($id)
     {
         Sepatu::where('id', '=', $id)->delete();
-        return redirect('sepatu')->with('success', 'Data Pendaki Berhasil Dihapus');
+        return redirect('sepatu')->with('success', 'Data Sepatu Berhasil Dihapus');
     }
 }

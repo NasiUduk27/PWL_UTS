@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+<<<<<<< HEAD
 Route::middleware(['auth'])->group(function(){
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/anggotakelompok', [AnggotaController::class, 'index']);
@@ -37,3 +38,17 @@ Route::middleware(['auth'])->group(function(){
 });
 
 Route::get('logout', [LoginController::class, 'logout']);
+=======
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/anggotakelompok', [AnggotaController::class, 'index']);
+Route::resource('/datatenda', TendaController::class);
+Route::resource('/pendaki', PendakiController::class);
+Route::resource('/sb', SleepingBagController::class);
+Route::resource('/jaket', JaketController::class);
+Route::resource('/sepatu', SepatuController::class);
+Route::resource('/sb', SleepingBagController::class);
+Route::resource('/others', OthersController::class);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+>>>>>>> 5addec451c6bd0bdea444b28471f214d6cf3de93
