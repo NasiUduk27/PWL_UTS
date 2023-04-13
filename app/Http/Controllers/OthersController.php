@@ -12,9 +12,13 @@ class OthersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $others = Others::paginate(2);
+        if($request->has('others')){
+            $others = Others::where('nama', 'LIKE', '%'.$request->others.'%')->paginate(2);
+        }else{
+            $others = Others::paginate(2);
+        }
         return view('others.others')->with('others', $others);
     }
 
@@ -44,7 +48,7 @@ class OthersController extends Controller
         ]);
 
         $data = Others::create($request->except(['_token']));
-        return redirect('others')->with('success', 'Data Pendaki Berhasil Ditambahkan');
+        return redirect('others')->with('success', 'Data Others Berhasil Ditambahkan');
     }
 
     /**
@@ -89,7 +93,7 @@ class OthersController extends Controller
         ]);
 
         $data = Others::where('id', '=' , $id)->update($request->except(['_token', '_method']));
-        return redirect('others')->with('success', 'Data Pendaki Berhasil Diubah');
+        return redirect('others')->with('success', 'Data Others Berhasil Diubah');
     }
 
     /**
@@ -101,6 +105,6 @@ class OthersController extends Controller
     public function destroy($id)
     {
         Others::where('id', '=', $id)->delete();
-        return redirect('others')->with('success', 'Data Pendaki Berhasil Dihapus');
+        return redirect('others')->with('success', 'Data Others Berhasil Dihapus');
     }
 }

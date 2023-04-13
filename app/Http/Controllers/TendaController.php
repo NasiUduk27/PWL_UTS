@@ -12,9 +12,13 @@ class TendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tenda = Tenda::paginate(2);
+        if($request->has('tenda')){
+            $tenda = Tenda::where('merk_tenda', 'LIKE', '%'.$request->tenda.'%')->paginate(2);
+        }else{
+            $tenda = Tenda::paginate(2);
+        }
         return view('tenda.tenda', [
             'tenda' => $tenda
         ]);

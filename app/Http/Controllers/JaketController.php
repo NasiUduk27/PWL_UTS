@@ -12,9 +12,13 @@ class JaketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $jaket = Jaket::paginate(2);
+        if($request->has('search')){
+            $jaket = Jaket::where('merk_jaket', 'LIKE', '%'.$request->search.'%')->paginate(2);
+        }else{
+            $jaket = Jaket::paginate(2);
+        }    
         return view('jaket.jaket', [
             'jaket' => $jaket
         ]);
@@ -47,7 +51,7 @@ class JaketController extends Controller
 
         $data = Jaket::create($request->except(['_token']));
         return redirect('jaket')
-                        ->with('success', 'Data Tenda Berhasil Ditambahkan');
+                        ->with('success', 'Data Jaket Berhasil Ditambahkan');
     }
 
     /**
@@ -92,7 +96,7 @@ class JaketController extends Controller
 
         $data = Jaket::where('id', '=', $id)->update($request->except(['_token', '_method']));
         return redirect('jaket')
-                        ->with('success', 'Data Tenda Berhasil Diubah');
+                        ->with('success', 'Data Jaket Berhasil Diubah');
     }
 
     /**
@@ -105,6 +109,6 @@ class JaketController extends Controller
     {
         Jaket::where('id', '=', $id)->delete();
         return redirect('jaket')
-                        ->with('success', 'Tenda Berhasil Dihapus');
+                        ->with('success', 'Jaket Berhasil Dihapus');
     }
 }

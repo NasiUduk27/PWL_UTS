@@ -12,9 +12,13 @@ class SleepingBagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $sb = SleepingBag::paginate(2);
+        if($request->has('sb')){
+            $sb = SleepingBag::where('merk_sb', 'LIKE', '%'.$request->sb.'%')->paginate(2);
+        }else{
+            $sb = SleepingBag::paginate(2);
+        }
         return view('sleepingbag.sleepingbag', [
             'sb' => $sb
         ]);
@@ -47,7 +51,7 @@ class SleepingBagController extends Controller
 
         $data = SleepingBag::create($request->except(['_token']));
         return redirect('sb')
-                        ->with('success', 'Data Tenda Berhasil Ditambahkan');
+                        ->with('success', 'Data Sleeping Bag Berhasil Ditambahkan');
     }
 
     /**
@@ -92,7 +96,7 @@ class SleepingBagController extends Controller
 
         $data = SleepingBag::where('id', '=', $id)->update($request->except(['_token', '_method']));
         return redirect('sb')
-                        ->with('success', 'Data Tenda Berhasil Diubah');
+                        ->with('success', 'Data Sleeping Bag Berhasil Diubah');
     }
 
     /**
@@ -105,6 +109,6 @@ class SleepingBagController extends Controller
     {
         SleepingBag::where('id', '=', $id)->delete();
         return redirect('sb')
-                        ->with('success', 'Tenda Berhasil Dihapus');
+                        ->with('success', 'Sleeping Bag Berhasil Dihapus');
     }
 }

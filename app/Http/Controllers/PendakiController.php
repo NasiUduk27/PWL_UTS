@@ -12,9 +12,13 @@ class PendakiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pendaki = Pendaki::paginate(2);
+        if($request->has('pendaki')){
+            $pendaki = Pendaki::where('nama', 'LIKE', '%'.$request->pendaki.'%')->paginate(2);
+        }else{
+            $pendaki = Pendaki::paginate(2);
+        }
         return view('pendaki.pendaki')->with('pendaki', $pendaki);
     }
 

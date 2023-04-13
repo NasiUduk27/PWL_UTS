@@ -8,6 +8,7 @@ use App\Http\Controllers\PendakiController;
 use App\Http\Controllers\SepatuController;
 use App\Http\Controllers\SleepingBagController;
 use App\Http\Controllers\TendaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/anggotakelompok', [AnggotaController::class, 'index']);
 Route::resource('/datatenda', TendaController::class);
@@ -30,3 +33,5 @@ Route::resource('/jaket', JaketController::class);
 Route::resource('/sepatu', SepatuController::class);
 Route::resource('/sb', SleepingBagController::class);
 Route::resource('/others', OthersController::class);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
