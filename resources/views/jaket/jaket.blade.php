@@ -49,7 +49,7 @@
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
                             <form action="/jaket" method="GET">
-                                <input type="search" id="search" name="search" class="form-control"
+                                <input type="jaket" id="jaket" name="jaket" class="form-control"
                                     placeholder="Cari...">
                             </form>
                         </div>
@@ -145,6 +145,8 @@
         function confirmDelete() {
             if (confirm('Apakah Anda yakin? Data akan dihapus. Apakah Anda ingin melanjutkan?')) {
                 document.getElementById('form').submit();
+            }else {
+                event.preventDefault();
             }
         }
     </script>

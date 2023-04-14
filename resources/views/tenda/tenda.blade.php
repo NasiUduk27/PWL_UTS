@@ -145,6 +145,8 @@
         function confirmDelete() {
             if (confirm('Apakah Anda yakin? Data akan dihapus. Apakah Anda ingin melanjutkan?')) {
                 document.getElementById('form').submit();
+            }else {
+                event.preventDefault();
             }
         }
     </script>

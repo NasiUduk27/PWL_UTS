@@ -14,8 +14,8 @@ class JaketController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->has('search')){
-            $jaket = Jaket::where('merk_jaket', 'LIKE', '%'.$request->search.'%')->paginate(2);
+        if($request->has('jaket')){
+            $jaket = Jaket::where('merk_jaket', 'LIKE', $request->jaket.'%')->paginate(2)->withQueryString();
         }else{
             $jaket = Jaket::paginate(2);
         }    

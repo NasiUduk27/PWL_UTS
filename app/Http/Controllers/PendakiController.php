@@ -14,13 +14,14 @@ class PendakiController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->has('pendaki')){
-            $pendaki = Pendaki::where('nama', 'LIKE', '%'.$request->pendaki.'%')->paginate(2);
-        }else{
+        if ($request->has('pendaki')) {
+            $pendaki = Pendaki::where('nama', 'LIKE', $request->pendaki.'%')->paginate(2)->withQueryString();
+        } else {
             $pendaki = Pendaki::paginate(2);
         }
         return view('pendaki.pendaki')->with('pendaki', $pendaki);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -41,7 +42,7 @@ class PendakiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'NIK' => 'required|size:16',
+            'NIK' => 'required|size:16|unique:pendaki,nik',
             'nama' => 'required|max:50',
             'alamat' => 'required',
             'no_hp' => 'required|size:12',
@@ -87,7 +88,7 @@ class PendakiController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'NIK' => 'required|size:16',
+            'NIK' => 'required|size:16|unique:pendaki,nik',
             'nama' => 'required|max:50',
             'alamat' => 'required',
             'no_hp' => 'required|size:12',

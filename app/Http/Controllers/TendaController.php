@@ -15,7 +15,7 @@ class TendaController extends Controller
     public function index(Request $request)
     {
         if($request->has('tenda')){
-            $tenda = Tenda::where('merk_tenda', 'LIKE', '%'.$request->tenda.'%')->paginate(2);
+            $tenda = Tenda::where('merk_tenda', 'LIKE', $request->tenda.'%')->paginate(2)->withQueryString();
         }else{
             $tenda = Tenda::paginate(2);
         }

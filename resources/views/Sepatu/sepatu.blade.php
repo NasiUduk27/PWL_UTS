@@ -2,32 +2,6 @@
 
 @section('content')
 
-<<<<<<< HEAD
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Data Sepatu</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Data Barang</a></li>
-              <li class="breadcrumb-item active">Data Sepatu</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-        @if (session()->has('success'))
-            <div class="alert alert-success">
-                {{ session("success") }}
-=======
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -136,7 +110,6 @@
                     Terima Kasih
                 </div>
                 <!-- /.card-footer-->
->>>>>>> 5addec451c6bd0bdea444b28471f214d6cf3de93
             </div>
             <!-- /.card -->
 
@@ -173,6 +146,8 @@
         function confirmDelete() {
             if (confirm('Apakah Anda yakin? Data akan dihapus. Apakah Anda ingin melanjutkan?')) {
                 document.getElementById('form').submit();
+            }else {
+                event.preventDefault();
             }
         }
     </script>

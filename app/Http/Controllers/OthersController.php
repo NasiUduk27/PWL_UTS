@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jaket;
 use App\Models\Others;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class OthersController extends Controller
     public function index(Request $request)
     {
         if($request->has('others')){
-            $others = Others::where('nama', 'LIKE', '%'.$request->others.'%')->paginate(2);
+            $others = Others::where('nama', 'LIKE', $request->others.'%')->paginate(2)->withQueryString();
         }else{
             $others = Others::paginate(2);
         }

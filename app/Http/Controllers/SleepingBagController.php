@@ -15,7 +15,7 @@ class SleepingBagController extends Controller
     public function index(Request $request)
     {
         if($request->has('sb')){
-            $sb = SleepingBag::where('merk_sb', 'LIKE', '%'.$request->sb.'%')->paginate(2);
+            $sb = SleepingBag::where('merk_sb', 'LIKE', $request->sb.'%')->paginate(2)->withQueryString();
         }else{
             $sb = SleepingBag::paginate(2);
         }

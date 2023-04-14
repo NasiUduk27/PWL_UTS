@@ -83,7 +83,8 @@
                                             <form method="POST" action="{{ url('/sb/' . $t->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirmDelete()">hapus</button>
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirmDelete()">hapus</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -120,16 +121,16 @@
         th {}
 
         /* .card{
-          background:green;
-          color:aliceblue;
-          transition: 0.5s;
-      }
+              background:green;
+              color:aliceblue;
+              transition: 0.5s;
+          }
 
-      .card:hover{
-          background: aqua;
-          color: blue;
-          transform:scale(0.9);
-      } */
+          .card:hover{
+              background: aqua;
+              color: blue;
+              transform:scale(0.9);
+          } */
     </style>
 @endpush
 
@@ -138,11 +139,13 @@
   alert('Halaman Home')
 </script> --}}
 
-<script>
-  function confirmDelete() {
-      if (confirm('Apakah Anda yakin? Data akan dihapus. Apakah Anda ingin melanjutkan?')) {
-          document.getElementById('form').submit();
-      }
-  }
-</script>
+    <script>
+        function confirmDelete() {
+            if (confirm('Apakah Anda yakin? Data akan dihapus. Apakah Anda ingin melanjutkan?')) {
+                document.getElementById('form').submit();
+            } else {
+                event.preventDefault();
+            }
+        }
+    </script>
 @endpush

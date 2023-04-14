@@ -15,7 +15,7 @@ class SepatuController extends Controller
     public function index(Request $request)
     {
         if($request->has('sepatu')){
-            $sepatu = Sepatu::where('merk', 'LIKE', '%'.$request->sepatu.'%')->paginate(2);
+            $sepatu = Sepatu::where('merk', 'LIKE', $request->sepatu.'%')->paginate(2)->withQueryString();
         }else{
             $sepatu = Sepatu::paginate(2);
         }
